@@ -22,12 +22,6 @@ export class CommentsServices {
          },
       })
    }
-   private async _fetchCommentsFromJsonFile() {
-      const response = await fetch("/data.json");
-      const comments = await response.json();
-      console.log("comments from json file", comments);
-      return FromJsonToComments(comments.comments);
-   }
 
    async getCommentsFromDb() {
       const allComments = await (await this._db).getAll("comments");

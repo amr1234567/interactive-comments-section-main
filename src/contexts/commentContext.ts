@@ -59,10 +59,10 @@ const commentContext = createSlice({
 
    },
    extraReducers: (builder) => {
-      builder.addCase(getAllComments.fulfilled, (state, action) => {
+      builder.addCase(getAllComments.fulfilled, (_state, action) => {
          return action.payload;
       });
-      builder.addCase(getComment.fulfilled, (state, action) => {
+      builder.addCase(getComment.fulfilled, (_state, action) => {
          return action.payload;
       });
       builder.addCase(addComment.fulfilled, (state, action) => {
