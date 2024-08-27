@@ -1,0 +1,5 @@
+.container {
+   margin-left: 7%;
+   border-left: 1px solid var(--Dark-blue);
+   padding-left: 7%;
+}

@@ -1,0 +1,58 @@
+.form {
+   padding: 1rem;
+   width: 100%;
+   display: flex;
+   align-items: start;
+   justify-content: space-around;
+   gap: 0.7rem;
+   background-color: var(--Very-light-gray);
+   border-radius: 7px;
+   bottom: 1.5rem;
+}
+
+.profile-photo {
+   width: 50px;
+   height: 50px;
+   border-radius: 50%;
+   overflow: hidden;
+}
+
+.input {
+   outline: none;
+   border: 1px solid var(--Dark-blue);
+   border-radius: 7px;
+   padding: 1rem 1.5rem;
+   color: var(--Dark-blue);
+   width: 70%;
+   min-height: 6rem;
+   font-size: larger;
+}
+
+.submit-button {
+   background-color: var(--Moderate-blue);
+   color: var(--Very-light-gray);
+   font-weight: 500;
+   text-transform: uppercase;
+   border: none;
+   cursor: pointer;
+   padding: 0.7rem 1.5rem;
+   border-radius: 7px;
+   transition: 0.2s ease-in-out;
+}
+
+.submit-button:hover,
+.clear-button:hover {
+   opacity: 0.5;
+}
+
+.clear-button {
+   background-color: var(--Grayish-Blue);
+   color: var(--White);
+   font-weight: 500;
+   text-transform: uppercase;
+   border: none;
+   cursor: pointer;
+   padding: 0.7rem 1.5rem;
+   border-radius: 7px;
+   transition: 0.2s ease-in-out;
+}

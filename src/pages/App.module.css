@@ -1,0 +1,7 @@
+.main {
+  width: 50%;
+  min-height: 100vh;
+  position: relative;
+  margin: 0 auto;
+  padding-bottom: 10rem;
+}
