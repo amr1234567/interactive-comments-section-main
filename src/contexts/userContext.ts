@@ -20,7 +20,7 @@ export const userContext = createSlice({
    initialState: userInitialState,
    reducers: {},
    extraReducers: (builder) => {
-      builder.addCase(fetchCurrentUser.fulfilled, (state, action) => {
+      builder.addCase(fetchCurrentUser.fulfilled, (_state, action) => {
          return action.payload;
       });
    },
