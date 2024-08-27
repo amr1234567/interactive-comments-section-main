@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 import { getAllComments } from "../../contexts/commentContext";
 
 function CommentsList() {
-  const comments = useAppSelector((state) => state.comments);
+  const { comments } = useAppSelector((state) => state.comments);
   const dispatch = useAppDispatch();
   const commentsEndRef = useRef<HTMLDivElement | null>(null); // Ref to the bottom of the comments list
 

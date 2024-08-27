@@ -5,7 +5,7 @@ import { UserServices } from "../services/userServices";
 const userServices = new UserServices();
 
 // Async thunk to fetch user data
-export const fetchCurrentUser = createAsyncThunk("user/fetchCurrentUser", async () => {
+const fetchCurrentUser = createAsyncThunk("user/fetchCurrentUser", async () => {
    const user = await userServices.getCurrentUser();
    return user;
 });
@@ -27,4 +27,5 @@ export const userContext = createSlice({
 });
 
 export default userContext.reducer;
+export { fetchCurrentUser };
 export const actions = userContext.actions;

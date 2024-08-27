@@ -25,7 +25,6 @@ export class CommentsServices {
 
    async getCommentsFromDb() {
       const allComments = await (await this._db).getAll("comments");
-      console.log("all comments from db", allComments);
       return FromJsonToComments(allComments);
    }
 
@@ -43,22 +42,24 @@ export class CommentsServices {
       } else {
          throw new Error("Comment not found");
       }
-      return await tx.done;
+      await tx.done;
+      return comment;
    }
 
    async deleteReplay(commentId: number, replayId: number) {
       const tx = (await this._db).transaction("comments", "readwrite");
-      const comment = await tx.store.get(commentId);
+      const comment: CommentType = await tx.store.get(commentId);
       if (comment) {
          comment.replies = comment.replies.filter((reply: ReplayType) => reply.id !== replayId);
          await tx.store.put(comment);
       } else {
          throw new Error("Comment not found");
       }
-      return await tx.done;
+      await tx.done;
+      return comment;
    }
 
-   async editReplay(commentId: number, replay: ReplayType) {
+   async editReplay(commentId: number, replay: ReplayType): Promise<CommentType> {
       const tx = (await this._db).transaction("comments", "readwrite");
       const comment = await tx.store.get(commentId);
       if (comment) {
@@ -72,7 +73,8 @@ export class CommentsServices {
       } else {
          throw new Error("Comment not found");
       }
-      return await tx.done;
+      await tx.done;
+      return comment;
    }
 
    async addComment(comment: CommentType) {

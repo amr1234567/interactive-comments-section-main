@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useForm } from "react-hook-form";
 import styles from "./InputComponent.module.css";
 import { useAppDispatch, useAppSelector } from "../../store/applicationStore";
@@ -9,10 +8,14 @@ function InputComponent({
   onSubmit,
   onClear,
   buttonText,
+  showImage,
+  value,
 }: Readonly<{
   onSubmit: ({ commentText }: { commentText: string }) => void;
   buttonText: string;
   onClear: () => void;
+  showImage: boolean | undefined;
+  value: string | undefined;
 }>) {
   const user = useAppSelector((state) => state.user);
   const dispatch = useAppDispatch();
@@ -24,13 +27,17 @@ function InputComponent({
     register,
     handleSubmit,
     formState: { isDirty, isValid, isSubmitting },
-  } = useForm<{ commentText: string }>({});
+  } = useForm<{ commentText: string }>({
+    defaultValues: { commentText: value ?? "" },
+  });
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-      <div className={styles["profile-photo"]}>
-        <img src={user?.image.png} alt="" />
-      </div>
+      {showImage && (
+        <div className={styles["profile-photo"]}>
+          <img src={user?.image.png} alt="" />
+        </div>
+      )}
       <textarea
         className={styles.input}
         {...register("commentText", {

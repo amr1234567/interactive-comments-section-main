@@ -17,6 +17,7 @@ export function FromJsonToComments(json: any): CommentType[] {
             createdAt: reply.createdAt,
             score: reply.score,
             user: {
+               username: reply.user.username,
                image: {
                   png: reply.user.image.png,
                   webp: reply.user.image.webp,
